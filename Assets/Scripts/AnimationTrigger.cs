@@ -1,21 +1,16 @@
-﻿using System.Collections;
+﻿// for triggering animatioin inside each tiles
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimationTrigger : MonoBehaviour {
 
+	// Name of animation to play in animator
 	public string animName;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
+	// starts animation after triggering a collision with this object
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if(other.gameObject.tag == "Player")

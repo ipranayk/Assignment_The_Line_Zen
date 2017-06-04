@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance;
 
+	// enum to keep track of game state
 	public enum AllGameStates
 	{
 		WAITING, INGAME, GAMEOVER, PAUSED, OTHER
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour {
 	public AllGameStates currGameState;
 
 
+	// current score
 	[HideInInspector]
 	public int score;
 
@@ -59,7 +61,7 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-
+	// High score save/read 
 	public static int HighScore
 	{
 		get {

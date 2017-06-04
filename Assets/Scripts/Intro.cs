@@ -15,6 +15,7 @@ public class Intro : MonoBehaviour {
 		
 	}
 
+	// start game on button press
 	public void StartGame()
 	{
 		SceneManager.LoadScene("Game");

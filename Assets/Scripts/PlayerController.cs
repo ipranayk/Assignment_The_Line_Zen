@@ -1,15 +1,19 @@
-﻿using UnityEngine;
+﻿// player movement 
+
+using UnityEngine;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
+	// player move sensitivity ( speed )
 	public float moveSpeed;
 
 
-
+	// for mouse delta movement
 	private Vector3 delta  = Vector3.zero;
 	private Vector3 lastPos = Vector3.zero;
 
+	// player rigidbody
 	private Rigidbody2D playerRigid;
 
 
@@ -36,9 +40,11 @@ public class PlayerController : MonoBehaviour {
 			delta = Vector3.zero;
 		}
 
+		// player movement
 		playerRigid.AddForce(Vector2.right * delta.x * moveSpeed * Time.deltaTime);
 	}
 
+	// detect collisiion for game over
 	void OnCollisionEnter2D(Collision2D col)
 	{
 		if(col.gameObject.tag == "Death")

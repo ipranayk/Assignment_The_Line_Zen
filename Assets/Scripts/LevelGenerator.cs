@@ -10,9 +10,13 @@ public class LevelGenerator : MonoBehaviour {
 
 	public GameObject[] allTiles;
 
+	// below this y co ordinate, new tile will instantiate
 	public float yPositionToGenerate;
+
+	// below this y co ordinate, a tile will get destroyed
 	public float yPositionToDestroy;
 
+	// to keep track of last generated tile ( not to repeate same tile again )
 	private int lastTileNumber = 0;
 
 
@@ -21,18 +25,10 @@ public class LevelGenerator : MonoBehaviour {
 		instance = this;
 	}
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	public void GenerateNextTile(Transform origin)
 	{
+		// select random tile from tile array
 		int ranTileNumber = Random.Range(0, allTiles.Length);
 
 
@@ -42,7 +38,7 @@ public class LevelGenerator : MonoBehaviour {
 			ranTileNumber = Random.Range(0, allTiles.Length);
 		}
 
-
+		// create new tile
 		Instantiate(allTiles[ranTileNumber], origin.position, Quaternion.identity);
 	}
 }
