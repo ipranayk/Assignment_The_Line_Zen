@@ -38,6 +38,7 @@ public class LevelGenerator : MonoBehaviour {
 			ranTileNumber = Random.Range(0, allTiles.Length);
 		}
 
+		lastTileNumber = ranTileNumber;
 		// create new tile
 		Instantiate(allTiles[ranTileNumber], origin.position, Quaternion.identity);
 	}
