@@ -13,6 +13,8 @@ public class LevelGenerator : MonoBehaviour {
 	public float yPositionToGenerate;
 	public float yPositionToDestroy;
 
+	private int lastTileNumber = 0;
+
 
 	void Awake()
 	{
@@ -31,6 +33,16 @@ public class LevelGenerator : MonoBehaviour {
 
 	public void GenerateNextTile(Transform origin)
 	{
-		Instantiate(allTiles[Random.Range(0, allTiles.Length)], origin.position, Quaternion.identity);
+		int ranTileNumber = Random.Range(0, allTiles.Length);
+
+
+		// not to repeat same tile twice back to back
+		while (ranTileNumber == lastTileNumber)
+		{
+			ranTileNumber = Random.Range(0, allTiles.Length);
+		}
+
+
+		Instantiate(allTiles[ranTileNumber], origin.position, Quaternion.identity);
 	}
 }
